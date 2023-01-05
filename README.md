@@ -9,7 +9,7 @@
 		- [On Getting Hit](#on-getting-hit)
 
 # API Details
-The T.I.T.S. Websocket Server runs on ws://localhost:42069 .
+The T.I.T.S. Websocket Server runs on `ws://localhost:42069` .
 These API documentations are EXTREMELY early in the development of the T.I.T.S. API and there is a lot of room for expansion!
 
 All requests & responses have the following headers:
