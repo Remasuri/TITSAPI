@@ -82,7 +82,7 @@ This request lets you control the throws of T.I.T.S.
   "apiName": "TITSPublicApi",
   "apiVersion": "1.0",
   "requestID": "someID",
-  "messageType": "TITSThrowItemsRequest"
+  "messageType": "TITSThrowItemsRequest",
   "data":{
   	"items": [
   		"d1a7f8d2-0aee-404f-b75e-4c2004d6122d",
