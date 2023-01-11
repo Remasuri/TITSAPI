@@ -110,6 +110,7 @@ This request lets you control the throws of T.I.T.S.
 ```
 ## Get List of available Triggers
 This request will send oyu a list of all available triggers in the users T.I.T.S.-Setup.
+
 **`REQUEST`**
 ```json
 {
@@ -119,6 +120,7 @@ This request will send oyu a list of all available triggers in the users T.I.T.S
   "messageType": "TITSTriggerListRequest"
 }
 ```
+
 **`RESPONSE`**
 ```json
 { 
@@ -143,6 +145,7 @@ This request will send oyu a list of all available triggers in the users T.I.T.S
 }
 ```
 ## Activate a Trigger
+
 **`REQUEST`**
 ```json
 {
@@ -154,6 +157,7 @@ This request will send oyu a list of all available triggers in the users T.I.T.S
 }
 ```
 `triggerID` refers to the ID of the trigger you want to activate
+
 **`RESPONSE`**
 ```json
 {
