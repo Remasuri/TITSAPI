@@ -61,16 +61,19 @@ This request lets you get a list of all available items in the users Model-Impor
     "items": [
       {
         "ID": "60c678fc-60d1-4740-92d8-30f8bf42afc9",
-        "name": "apple"
+        "name": "apple",
+	"encodedImage": "someBase64EncodedString"
       },
       {
         "ID": "16d75b54-f4f4-4f97-a946-8ddb21eb2820",
-        "name": "banana"
+        "name": "banana",
+	"encodedImage": "someBase64EncodedString"
       }
     ]
   }
 }
 ```
+`encodedImage` is a Base64 encoded PNG-Image with the dimensions 256x256 pixels.
 ## Throw Items
 This request lets you control the throws of T.I.T.S.
 
