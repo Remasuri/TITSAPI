@@ -92,13 +92,15 @@ This request lets you control the throws of T.I.T.S.
 		"c502b3a7-49ed-4154-acbb-7fdbec078f9f"
     ],
     "delayTime": 0.05,
-    "amountOfThrows": 50
+    "amountOfThrows": 50,
+    "errorOnMissingID": false
   }
 }
 ```
 `items` is a list of Item-IDs, where T.I.T.S. will randomly select one of those IDs each throw. You can include duplicate IDs to increase the probability of an item.
 `delayTime` refers to the time in s between the throws. By default it is set to 0.05s.
-`amountOfThrows` tells T.I.T.S. how many items to throw.
+`amountOfThrows` tells T.I.T.S. how many items to throw. 
+`errorOnMissingID` tells T.I.T.S. to send an Error-Response if one of the Item-IDs was not found.
 
 **`RESPONSE`**
 ```json
@@ -158,7 +160,9 @@ This request will send oyu a list of all available triggers in the users T.I.T.S
   "apiVersion": "1.0",
   "requestID": "someID",
   "messageType": "TITSTriggerActivateRequest",
-  "triggerID": "a0ce3831-3c3e-4474-b4e4-19ab98dc73dd"
+  "data": {
+    "triggerID": "a0ce3831-3c3e-4474-b4e4-19ab98dc73dd"
+  }
 }
 ```
 `triggerID` refers to the ID of the trigger you want to activate
