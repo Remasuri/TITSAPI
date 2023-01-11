@@ -4,6 +4,8 @@
 	- [Websocket-Endpoint](#websocket-endpoint)
 		- [Get List of available items](#get-list-of-available-items)
 		- [Throw Items](#throw-items)
+		- [Get List of available Triggers](#get-list-of-available-triggers)
+		- [Activate a trigger](#activate-a-trigger)
 	- [Event-Endpoint](#event-endpoint)
 		- [On Getting Hit](#on-getting-hit)
 
@@ -92,6 +94,7 @@ This request lets you control the throws of T.I.T.S.
 `items` is a list of Item-IDs, where T.I.T.S. will randomly select one of those IDs each throw. You can include duplicate IDs to increase the probability of an item.
 `delayTime` refers to the time in s between the throws. By default it is set to 0.05s.
 `amountOfThrows` tells T.I.T.S. how many items to throw.
+
 **`RESPONSE`**
 ```json
 { 
@@ -103,6 +106,62 @@ This request lets you control the throws of T.I.T.S.
   "data": {
     "numberOfThrownItems": 50
   }
+}
+```
+## Get List of available Triggers
+This request will send oyu a list of all available triggers in the users T.I.T.S.-Setup.
+**`REQUEST`**
+```json
+{
+  "apiName": "TITSPublicApi",
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSTriggerListRequest"
+}
+```
+**`RESPONSE`**
+```json
+{ 
+  "apiName": "TITSPublicApi",
+  "timestamp": 133173178563183532,
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSTriggerListResponse",
+  "triggerCount": 2,
+  "data": {
+    "triggers": [
+      {
+        "ID": "670950d5-ff0e-44a2-96ee-69ab9363da31",
+        "name": "New Follow"
+      },
+      {
+        "ID": "ebb7170b-40e6-4832-8b05-bc6c809d79f1",
+        "name": "Throw Bananas"
+      }
+    ]
+  }
+}
+```
+## Activate a Trigger
+**`REQUEST`**
+```json
+{
+  "apiName": "TITSPublicApi",
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSTriggerActivateRequest",
+  "triggerID": "a0ce3831-3c3e-4474-b4e4-19ab98dc73dd"
+}
+```
+`triggerID` refers to the ID of the trigger you want to activate
+**`RESPONSE`**
+```json
+{
+  "apiName": "TITSPublicApi",
+  "timestamp": 133178785185437633,
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSTriggerActivateResponse"
 }
 ```
 # Event-Endpoint
