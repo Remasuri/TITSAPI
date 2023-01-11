@@ -1,9 +1,8 @@
 # T.I.T.S. API
 ## Contents
 - [API Details](#api-details)
-	- [Data-Endpoint](#data-endpoint)
+	- [Websocket-Endpoint](#websocket-endpoint)
 		- [Get List of available items](#get-list-of-available-items)
-	- [Input-Endpoint](#input-endpoint)
 		- [Throw Items](#throw-items)
 	- [Event-Endpoint](#event-endpoint)
 		- [On Getting Hit](#on-getting-hit)
@@ -33,9 +32,9 @@ All requests & responses have the following headers:
   "messageType": "myMessageResponse"
 }
 ```
-# Data-Endpoint
+# Websocket-Endpoint
 The Data-Endpoint is designed around fetching data from T.I.T.S. (Example: Getting a list of all available items)
-The Endpoint is accessed over the address `ws:localhost:42069/Data`.
+The Endpoint is accessed over the address `ws:localhost:42069/websocket`.
 ## Get List of available items
 This request lets you get a list of all available items in the users Model-Importer
 
@@ -70,9 +69,6 @@ This request lets you get a list of all available items in the users Model-Impor
   }
 }
 ```
-# Input-Endpoint
-The Input-Endpoint is designed around the plugin sending instructions for T.I.T.S. to do something (like throwing items)
-The Endpoint is accessed over the address `ws://localhost:42069/Input`.
 ## Throw Items
 This request lets you control the throws of T.I.T.S.
 
@@ -93,6 +89,9 @@ This request lets you control the throws of T.I.T.S.
   }
 }
 ```
+`items` is a list of Item-IDs, where T.I.T.S. will randomly select one of those IDs each throw. You can include duplicate IDs to increase the probability of an item.
+`delayTime` refers to the time in s between the throws. By default it is set to 0.05s.
+`amountOfThrows` tells T.I.T.S. how many items to throw.
 **`RESPONSE`**
 ```json
 { 
@@ -108,7 +107,7 @@ This request lets you control the throws of T.I.T.S.
 ```
 # Event-Endpoint
 The Event-Endpoint is designed around receiving events whenever something happens in T.I.T.S. (Example: Event gets triggered upon the user getting hit)
-The Endpoint is accessed over the address `ws:localhost:42069/Events`.
+The Endpoint is accessed over the address `ws:localhost:42069/events`.
 ## On Getting Hit
 This Event gets broadcasted whenever the player gets hit!
 
