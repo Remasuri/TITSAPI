@@ -8,6 +8,8 @@
 		- [Activate a trigger](#activate-a-trigger)
 	- [Event-Endpoint](#event-endpoint)
 		- [On Getting Hit](#on-getting-hit)
+		- [On Trigger Activated](#on-trigger-activated)
+		- [On Trigger Ended](#on-trigger-ended)
 
 # API Details
 The T.I.T.S. Websocket Server runs on `ws://localhost:42069` .
@@ -195,6 +197,40 @@ This Event gets broadcasted whenever the player gets hit!
       "magnitude": 1.0,
       "sqrMagnitude": 1.0
     }
+  }
+}
+```
+
+## On Trigger Activated
+This event gets broadcasted whenever a trigger gets activated!
+
+**`BROADCAST`**
+```json
+{ 
+  "apiName": "TITSPublicApi",
+  "timestamp": 133173178563183532,
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSTriggerActivatedEvent",
+  "data": {
+    "triggerID": "d1a7f8d2-0aee-404f-b75e-4c2004d6122d"
+  }
+}
+```
+
+## On Trigger Ended
+This event gets broadcasted whenever a trigger threw its last item!
+
+**`BROADCAST`**
+```json
+{ 
+  "apiName": "TITSPublicApi",
+  "timestamp": 133173178563183532,
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSTriggerEndedEvent",
+  "data": {
+    "triggerID": "d1a7f8d2-0aee-404f-b75e-4c2004d6122d"
   }
 }
 ```
