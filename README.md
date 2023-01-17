@@ -3,6 +3,7 @@
 - [API Details](#api-details)
 	- [Websocket-Endpoint](#websocket-endpoint)
 		- [Get List of available items](#get-list-of-available-items)
+		- [Get Info of specific Item](#get-info-of-specific-item)
 		- [Throw Items](#throw-items)
 		- [Get List of available Triggers](#get-list-of-available-triggers)
 		- [Activate a trigger](#activate-a-trigger)
@@ -48,7 +49,8 @@ This request lets you get a list of all available items in the users Model-Impor
   "apiName": "TITSPublicApi",
   "apiVersion": "1.0",
   "requestID": "someID",
-  "messageType": "TITSItemListRequest"
+  "messageType": "TITSItemListRequest",
+  "sendImage": true
 }
 ```
 **`RESPONSE`**
@@ -115,6 +117,38 @@ This request lets you control the throws of T.I.T.S.
   }
 }
 ```
+## Get Info of specific Item
+This request will give you info about only a single item.
+
+**`REQUEST`**
+```json
+{
+  "apiName": "TITSPublicApi",
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSItemInfoRequest",
+  "data": {
+    "itemID": "ID of requested Item"
+  }
+}
+```
+
+**`RESPONSE`**
+```json
+{ 
+  "apiName": "TITSPublicApi",
+  "timestamp": 133173178563183532,
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSItemInfoResponse",
+  "data": {
+    "ID": "60c678fc-60d1-4740-92d8-30f8bf42afc9",
+    "name": "apple",
+    "encodedImage": "someBase64EncodedString"
+  }
+}
+```
+
 ## Get List of available Triggers
 This request will send oyu a list of all available triggers in the users T.I.T.S.-Setup.
 
@@ -193,13 +227,14 @@ This Event gets broadcasted whenever the player gets hit!
   "messageType": "TITSHitEvent",
   "data": {
     "itemID": "d1a7f8d2-0aee-404f-b75e-4c2004d6122d",
+    "itemName": "nameOfItem",
+    "triggerID": "IdOfTrigger",
+    "triggerName": "NameOfTrigger",
     "strength": 24.5,
     "direction": {
       "x": 0.3261459,
       "y": 0.9256075,
-      "z": 0.1920408,
-      "magnitude": 1.0,
-      "sqrMagnitude": 1.0
+      "z": 0.1920408
     }
   }
 }
