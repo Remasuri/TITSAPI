@@ -195,11 +195,12 @@ This request will send oyu a list of all available triggers in the users T.I.T.S
   "requestID": "someID",
   "messageType": "TITSTriggerActivateRequest",
   "data": {
-    "triggerID": "a0ce3831-3c3e-4474-b4e4-19ab98dc73dd"
+    "triggerID": "a0ce3831-3c3e-4474-b4e4-19ab98dc73dd",
+	"triggerName": "Name of trigger"
   }
 }
 ```
-`triggerID` refers to the ID of the trigger you want to activate
+`triggerID` refers to the ID of the trigger you want to activate. If triggerID is left empty or no trigger with the set ID could be found, the `triggerName` will be used to search for the trigger.
 
 **`RESPONSE`**
 ```json
@@ -252,7 +253,8 @@ This event gets broadcasted whenever a trigger gets activated!
   "requestID": "someID",
   "messageType": "TITSTriggerActivatedEvent",
   "data": {
-    "triggerID": "d1a7f8d2-0aee-404f-b75e-4c2004d6122d"
+    "triggerID": "d1a7f8d2-0aee-404f-b75e-4c2004d6122d",
+	"triggerName": "New trigger"
   }
 }
 ```
@@ -269,7 +271,8 @@ This event gets broadcasted whenever a trigger threw its last item!
   "requestID": "someID",
   "messageType": "TITSTriggerEndedEvent",
   "data": {
-    "triggerID": "d1a7f8d2-0aee-404f-b75e-4c2004d6122d"
+    "triggerID": "d1a7f8d2-0aee-404f-b75e-4c2004d6122d",
+	"triggerName": "New trigger"
   }
 }
 ```
