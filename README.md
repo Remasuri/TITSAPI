@@ -50,9 +50,13 @@ This request lets you get a list of all available items in the users Model-Impor
   "apiVersion": "1.0",
   "requestID": "someID",
   "messageType": "TITSItemListRequest",
-  "sendImage": true
+  "sendImage": true,
+  "data": {
+	  "sendImage": true
+  }
 }
 ```
+The `sendImage` property outside of the `data` sub-structure is obsolete and is only there to keep integrity with apps using the API before this change has been made.
 **`RESPONSE`**
 ```json
 { 
