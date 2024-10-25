@@ -50,7 +50,6 @@ This request lets you get a list of all available items in the users Model-Impor
   "apiVersion": "1.0",
   "requestID": "someID",
   "messageType": "TITSItemListRequest",
-  "sendImage": true,
   "data": {
 	  "sendImage": true
   }
