@@ -150,7 +150,7 @@ This request will give you info about only a single item.
 ```
 
 ## Get List of available Triggers
-This request will send oyu a list of all available triggers in the users T.I.T.S.-Setup.
+This request will send you a list of all available triggers in the users T.I.T.S.-Setup.
 
 **`REQUEST`**
 ```json
