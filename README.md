@@ -7,6 +7,8 @@
 		- [Throw Items](#throw-items)
 		- [Get List of available Triggers](#get-list-of-available-triggers)
 		- [Activate a trigger](#activate-a-trigger)
+		- [Get List of available Scenes](#get-list-of-available-scenes)
+		- [Switch to a Scene](#change-to-a-specific-scene)
 	- [Event-Endpoint](#event-endpoint)
 		- [On Getting Hit](#on-getting-hit)
 		- [On Trigger Activated](#on-trigger-activated)
@@ -213,6 +215,83 @@ This request will send you a list of all available triggers in the users T.I.T.S
   "apiVersion": "1.0",
   "requestID": "someID",
   "messageType": "TITSTriggerActivateResponse"
+}
+```
+## Get List of available Scenes
+This request returns a list of all scenes available in the user's T.I.T.S.-Setup.
+
+**`REQUEST`**
+```json
+{
+  "apiName": "TITSPublicApi",
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSSceneListRequest"
+}
+```
+
+**`RESPONSE`**
+```json
+{
+  "data": {
+    "scenes": [
+      {
+        "sceneID": "-1522862838",
+        "sceneName": "Scene"
+      },
+      {
+        "sceneID": "68627984",
+        "sceneName": "Scene"
+      },
+      {
+        "sceneID": "833094240",
+        "sceneName": "Scene"
+      },
+      {
+        "sceneID": "1425123324",
+        "sceneName": "Scene"
+      }
+    ]
+  },
+  "apiName": "TITSPublicApi",
+  "timestamp": 134075427952006617,
+  "apiVersion": "1.0",
+  "requestID": "someID",
+  "messageType": "TITSSceneListResponse"
+}
+```
+
+## Change to a Specific Scene
+This request switches T.I.T.S. to a specific scene by ID.
+
+**`REQUEST`**
+```json
+{
+  "apiName": "TITSPublicApi",
+  "apiVersion": "1.0",
+  "requestID": "someID2",
+  "messageType": "TITSChangeSceneRequest",
+  "data": {
+    "sceneID": "-1522862838"
+  }
+}
+```
+
+**`RESPONSE`**
+```json
+{
+  "data": {
+    "scene": {
+      "sceneID": "-1522862838",
+      "sceneName": "Scene"
+    },
+    "success": true
+  },
+  "apiName": "TITSPublicApi",
+  "timestamp": 134075427704156753,
+  "apiVersion": "1.0",
+  "requestID": "someID2",
+  "messageType": "TITSChangeSceneResponse"
 }
 ```
 # Event-Endpoint
